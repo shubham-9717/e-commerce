@@ -1,0 +1,52 @@
+<div class="b">
+    <div id="listName" *ngIf="view == 'list'">
+        <div *ngFor="let arr of listNamrArr;" [ngStyle]="arr.style">
+            <div>{{arr.CML_TITLE}}</div>
+        </div>
+    </div>
+    <div id="content" *ngIf="view == 'list'">
+        <div class="innerListName h" *ngFor="let data of dataArr ;let i=index">
+            <div class="v" *ngFor="let list of listNamrArr;let j=index" [ngStyle]="list.style">
+                <div *ngIf="list.type == 'text'">
+                    <div>{{data[list.key]}}</div>
+                </div>
+                <div class="v" *ngIf="list.type == 'image'">
+                    <img class="logo" src="{{data[list.key]}}">
+                </div>
+                <div class="v"   *ngIf="list.type == 'button'">
+                    <div class="button" [ngStyle]="{'background-color' : isCart ? 'red' : 'green'}"   (click)="callback(data,i,list.key)">{{list.key}}</div>
+                </div>
+                <div class="vh sm lrtp count" *ngIf="list.type == 'count' && isCart">
+                    <div class="btn"  (click)="increase(data)" title="Decrease by 1">-</div>
+                    <div>{{data.qty}}</div>
+                    <div class="btn"  (click)="decrease(data)" title="Increase by 1">+</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="gridContent" *ngIf="view == 'grid'">
+        <div class="innerGridName h" [ngStyle]="{'height' : isCart ? '250px' : '240px'}" *ngFor="let data of dataArr;let i=index">
+            <div class="vh" *ngFor="let list of gridNamrArr ;let j=index" [ngStyle]="list.style">
+                <div class="lrtp sm vh" *ngIf="list.type == 'text'">
+                    <div class="e" title="{{data[list.key]}}">{{data[list.key]}}</div>
+                </div>
+                <div class="sm vh lrtp" style="padding-top: 5px;" *ngIf="list.type == 'image'">
+                    <img class="image" src="{{data[list.key]}}">
+                </div>
+                <div class="vh sm lrtp" *ngIf="list.type == 'button'">
+                    <div class="button" [ngStyle]="{'background-color' : isCart ? 'red' : 'green'}" (click)="callback(data,i,list.key)" title="{{list.key}}">{{list.key}}</div>
+                </div>
+                <div class="vh sm lrtp count" *ngIf="list.type == 'count' && isCart">
+                    <div class="btn"  (click)="increase(data)" title="Decrease by 1">-</div>
+                    <div>{{data.qty}}</div>
+                    <div class="btn"  (click)="decrease(data)" title="Increase by 1">+</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,94 @@
+#listName{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 50px;
+    background-color: green;
+    padding: 0px 10px;
+    border-bottom: 1px solid black;
+}
+
+.innerListName{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 50px;
+    /* background-color: green; */
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+
+}
+
+.innerGridName{
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+    height: 250px;
+    width: 225px;
+    margin: 10px;
+    border: 1px solid rgb(197, 191, 191);
+    border-radius: 10px;
+    /* flex-grow: 1; */
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: calc(100% - 50px);
+    /* background-color: green; */
+    padding: 10px;
+}
+
+#gridContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    height: 100%;
+    /* flex-grow: 1; */
+    flex-wrap: wrap;
+}
+
+#list{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+img{
+    height: 100%;
+}
+
+.image{
+    height: 120px;
+    width: 100%;
+}
+
+.sm{
+    font-size: 14px;
+}
+
+.button{
+    padding: 2px;
+    text-align: center;
+    /* background-color: green; */
+    cursor: pointer;
+    color: white;
+}
+
+.btn{
+    width: 20px;
+    /* padding: 5px; */
+    border: .5px solid gray;
+    text-align: center;
+    
+}
+
+.count{
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}

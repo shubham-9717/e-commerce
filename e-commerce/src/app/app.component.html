@@ -1,0 +1,19 @@
+<div id="main">
+ <nav id="header">
+  <img class="logo" src="./../assets/images/e-com-logo.jpg">
+  <div style="font-size: 20px; color: white;">{{isCartOpen ? 'Cart List' : 'Product Cataloge'}}</div>
+  <!-- <input style="padding: 5px; position: absolute;right:150px;width: 200px;" #search type="text" placeholder="Search" (click)="evnt($event)"> -->
+  <div class="cart-icon"  [ngClass]="{'shadow' : isCartOpen }" (click)="toggle()"> 
+  <div class="shadow"  style="background-color: red;padding: 10px;text-align: center; position: relative;left: -70px;width: 50px;" (click)="changeView($event)">{{view == 'grid' ? 'List' : 'Grid'}}</div>
+    <div class="cart-count">{{this.cartArray.length}}</div>
+  </div>
+ </nav>
+ <div id="container">
+  <div id="middle-panel" class="brdRad">
+    <ng-container *ngIf="!(isCartOpen && dataArr1.length == 0)">
+      <app-generic-application-listing [isCart]="isCartOpen" [view]="view" [gridArr]="gridArr" [columnArr]="columnArr" [dataArr]="dataArr1" (callbackFunc)="callbackFunc($event)"></app-generic-application-listing>
+    </ng-container>
+    <div class="b" *ngIf="isCartOpen && dataArr1.length == 0" style="display: flex;justify-content: center;align-items: center; font-size: 30px;color: gray;">Please add product in cart first</div>
+  </div>
+ </div>
+</div>
